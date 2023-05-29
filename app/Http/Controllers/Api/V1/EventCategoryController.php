@@ -18,8 +18,9 @@ class EventCategoryController extends Controller
             return $this->apiResponse('Category Created Successfully', $data, StatusCode::CREATED);
         }
     }
-    public function listCategory(){
-        $data=EventCategory::paginate(5);
+    public function listCategory(EventCategory $eventCategory){
+        $data=EventCategory::with('message')->paginate(5);
         return $this->apiResponse('Category Listed Successfully', EventCategoryResources::collection($data), StatusCode::OK);
+
     }
 }

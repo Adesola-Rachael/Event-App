@@ -28,6 +28,8 @@ class MessageController extends Controller
     }
     public function listMessage(){
         $data=Message::paginate(5);
-        return $this->apiResponse('Message Listed Successfully', MessageResource::collection($data), StatusCode::OK);
+        return $this->apiResponse('Message Listed Successfully', $data, StatusCode::OK);
+
+        // return $this->apiResponse('Message Listed Successfully', MessageResource::collection($data), StatusCode::OK);
     }
 }

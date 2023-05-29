@@ -9,4 +9,11 @@ class Message extends Model
 {
     use HasFactory;
     protected $fillable = [ 'message','event_category_id'];
+
+    public function category(){
+        return $this->belongsTo(EventCategory::class);
+    }
+    public function event(){
+        return $this->hasMany(Event::class);
+    }
 }

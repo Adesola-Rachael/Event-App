@@ -17,6 +17,7 @@ class EventCategoryResources extends JsonResource
         return [
             'id' => $this->id,
             'category' => $this->category,
+            'message' =>MessageResource::collection($this->whenLoaded('message'))
             ];
     }
 }

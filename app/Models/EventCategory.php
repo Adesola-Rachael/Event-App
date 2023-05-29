@@ -11,4 +11,9 @@ class EventCategory extends Model
     use HasFactory;
     // protected $table = 'event_categories';
     protected $fillable = ['category'];
+
+    public function message(){
+        return $this->hasMany(Message::class);
+    }
+    
 }

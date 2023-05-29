@@ -21,8 +21,10 @@ class EventController extends Controller
      */
     public function listEvent()
     {
-        $data=Event::paginate(5);
-        return $this->apiResponse('Event Listed Successfully', EventResource::collection($data), StatusCode::OK);
+        $data=Event::with(['message','receiver','user'])->paginate(5);
+        // return $this->apiResponse('Event Listed Successfully', EventResource::collection($data), StatusCode::OK);
+        return $this->apiResponse('Event Listed Successfully', $data, StatusCode::OK);
+
     }
 
     /**

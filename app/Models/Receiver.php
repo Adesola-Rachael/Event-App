@@ -9,4 +9,8 @@ class Receiver extends Model
 {
     use HasFactory;
     protected $fillable = ['name','email','user_id','phone'];
+
+    public function event(){
+        return $this->hasMany(Event::class);
+    }
 }
